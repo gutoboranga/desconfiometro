@@ -1,0 +1,83 @@
+.result-container {
+    width: 100%;
+    margin: auto;
+}
+
+.result-subtitle {
+    font-size: 1.5em;
+    font-weight: 200;
+    color: #eee;
+    margin: 0;
+}
+
+.result-number {
+    font-size: 5em;
+    margin: 0;
+    margin-top: 0px;
+}
+
+.result-bar {
+    height: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    width: 80%;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.result-value-bar {
+    height: 100%;
+}
+
+.indicators-container {
+    background: rgba(0, 0, 0, 0.3);
+    width: 80%;
+    padding: 60px;
+}
+
+.card-subtitle {
+    color: #555;
+    font-size: 16px;
+    font-weight: 400;
+    justify: left;
+    text-align: left;
+}
+
+.card-title-custom {
+    color: #222;
+    font-size: 24px;
+    font-weight: 600;
+    justify: left;
+    text-align: left;
+}
+
+.card-numeric-value-container {
+    display: inline;
+    position: absolute;
+    margin: auto;
+    right: 30px;
+    height: 100%;
+    display: flex;
+}
+
+.card-numeric-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #222;
+    margin-top: 34px;
+    margin-right: 2px;
+}
+
+.card-numeric-value-end {
+    font-size: 18px;
+    color: #222;
+    margin-top: 36px;
+}
+
+img {
+    width: 50px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 30px;
+}

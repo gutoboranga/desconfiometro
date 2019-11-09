@@ -1,0 +1,31 @@
+<div class="result-container" align="center">
+    <p class="result-subtitle">A nota que calculamos é</p>
+    <p class="result-number">{{ score }}</p>
+    <div class="result-bar" align="left">
+        <div class="result-value-bar" style="background-color: #2CAE51; width: {{ score * 10 }}%;"></div>
+    </div>
+    
+    <div class="indicators-container">
+        {% for result in results %}
+            <div class="card horizontal" style="background-color: #DDDDDD;">
+                <div class="card-content">
+                  <p class="card-title-custom">{{ result.indicator_name }}</p>
+                  <p class="card-subtitle">{{ result.indicator_description }}</p>
+                </div>
+                {% if result.type == 'bool' %}
+                    <div class="card-icon-container">
+                        {% if result.value == 0 %}
+                            <img src="../static/img/not-ok.png" alt="">
+                        {% else %}
+                            <img src="../static/img/ok.png" alt="">
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <div class="card-numeric-value-container" style="vertical-align: middle;">
+                        <div class="card-numeric-value">{{ result.value }}</div><div class="card-numeric-value-end">/10</div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
