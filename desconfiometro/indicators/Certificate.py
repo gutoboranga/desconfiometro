@@ -18,7 +18,7 @@ class Certificate(BaseIndicator):
 
     def has_valid_certificate(self, netloc):
         try:
-            requests.get('https://' + netloc)
+            requests.get('https://' + netloc, timeout = 2)
             return True
         except SSLError:
             return False

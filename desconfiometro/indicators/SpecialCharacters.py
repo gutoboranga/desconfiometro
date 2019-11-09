@@ -13,7 +13,10 @@ class SpecialCharacters(BaseIndicator):
         return "boolean"
 
     def evaluate(self, parsed_url):
-        if any(x in parsed_url.netloc for x in self.special_chars):
+        return not self.contains_special_characters(parsed_url.netloc)
+
+    def contains_special_characters(self, netloc):
+        if any(x in netloc for x in self.special_chars):
             return True
         else:
             return False

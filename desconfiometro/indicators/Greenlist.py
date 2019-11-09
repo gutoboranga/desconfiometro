@@ -13,9 +13,9 @@ class Greenlist(BaseIndicator):
         return "boolean"
 
     def evaluate(self, parsed_url):
-        return self.contains(parsed_url.netloc)
+        return self.is_greenlisted(parsed_url.netloc)
 
-    def contains(self, item):
+    def is_greenlisted(self, item):
         line = self.file.readline()
         while line:
             if line.strip() == item:
