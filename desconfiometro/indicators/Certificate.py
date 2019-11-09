@@ -8,7 +8,10 @@ class Certificate(BaseIndicator):
         pass
 
     def get_name(self):
-        return "Certificate"
+        return "Certificados"
+        
+    def get_description(self):
+        return "Confere se possui certificados válidos"
 
     def get_type(self):
         return "boolean"
@@ -17,10 +20,14 @@ class Certificate(BaseIndicator):
         return self.has_valid_certificate(parsed_url.netloc)
 
     def has_valid_certificate(self, netloc):
+        ok = False
+        
         try:
             requests.get('https://' + netloc, timeout = 2)
-            return True
+            ok = True
         except SSLError:
-            return False
+            ok = False
         except:
-            return False
+            ok = False
+
+        return Result(self.get_name(), self.get_description(), (1 if ok else 0), self.get_type())

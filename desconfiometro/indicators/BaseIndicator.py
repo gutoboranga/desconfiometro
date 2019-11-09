@@ -5,7 +5,10 @@ class BaseIndicator():
         pass
     
     def get_name(self):
-        return "base_indicator"
+        return "-"
+        
+    def get_description(self):
+        return "-"
 
     def get_type(self):
         return "default"

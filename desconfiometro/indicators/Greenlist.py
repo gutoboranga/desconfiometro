@@ -7,7 +7,10 @@ class Greenlist(BaseIndicator):
         self.file = open('desconfiometro/indicators/data/greenlist.txt')
 
     def get_name(self):
-        return "Greenlist"
+        return "Lista dos confirmados"
+        
+    def get_description(self):
+        return "Confere se é um dos confirmados"
 
     def get_type(self):
         return "boolean"
@@ -17,8 +20,11 @@ class Greenlist(BaseIndicator):
 
     def is_greenlisted(self, item):
         line = self.file.readline()
+        ok = False
+        
         while line:
             if line.strip() == item:
-                return True
+                ok = True
             line = self.file.readline()
-        return False
+        
+        return Result(self.get_name(), self.get_description(), (1 if ok else 0), self.get_type())
