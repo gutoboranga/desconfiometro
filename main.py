@@ -2,7 +2,7 @@ from urllib.parse import urlparse
 
 from desconfiometro.indicators.Certificate import Certificate
 from desconfiometro.indicators.Greenlist import Greenlist
-from desconfiometro.indicators.IP import IP
+from desconfiometro.indicators.DNS import DNS
 from desconfiometro.indicators.SpecialCharacters import SpecialCharacters
 
 parsed = urlparse('https://www.submarinoviagens.com.br')
@@ -17,5 +17,5 @@ print(crt.get_name(), "Ok" if crt.evaluate(parsed) else "Not ok")
 sc = SpecialCharacters()
 print(sc.get_name(), "Ok" if sc.evaluate(parsed) else "Not ok")
 
-ip = IP()
+ip = DNS()
 print(ip.get_name(), "Ok" if ip.evaluate(parsed) else "Not ok")

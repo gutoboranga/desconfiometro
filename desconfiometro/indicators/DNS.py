@@ -4,16 +4,16 @@ from desconfiometro.blueprints.models.Result import Result
 import re
 
 
-class IP(BaseIndicator):
+class DNS(BaseIndicator):
 
     def __init__(self):
         self.ip_regex = "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}"
 
     def get_name(self):
-        return "IP"
+        return "DNS"
         
     def get_description(self):
-        return "Confere se o IP bla bla bla"
+        return "Confere se o endereço que aparece no \"link\" é registrado."
 
     def get_type(self):
         return "boolean"
