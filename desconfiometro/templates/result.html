@@ -8,7 +8,7 @@
     <div class="indicators-container">
         {% for result in results %}
             <div class="card horizontal" style="background-color: #DDDDDD;">
-                <div class="card-content">
+                <div class="card-content" style="margin-right: 80px;">
                   <p class="card-title-custom">{{ result.indicator_name }}</p>
                   <p class="card-subtitle">{{ result.indicator_description }}</p>
                 </div>
@@ -22,7 +22,7 @@
                     </div>
                 {% else %}
                     <div class="card-numeric-value-container" style="vertical-align: middle;">
-                        <div class="card-numeric-value">{{ result.value }}</div><div class="card-numeric-value-end">/10</div>
+                        <div class="card-numeric-value">{{ result.value }}</div>
                     </div>
                 {% endif %}
             </div>
