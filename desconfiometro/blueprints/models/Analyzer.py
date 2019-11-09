@@ -15,9 +15,10 @@ class Analyzer():
         newResults = []
         newScore = 0.0
         
-        for indicator in self.weighted_indicators:
-            r = indicator[0].evaluate(url)
-            w = indicator[1]
+        for w_i in self.weighted_indicators:
+            r = w_i[0].evaluate(url)
+
+            w = w_i[1]
             
             if r != None:
                 newResults.append(r)
