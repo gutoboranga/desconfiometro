@@ -1,16 +1,14 @@
 class Analyzer():
-    
-    def __init__(self, url, indicators):
-        self.url = url
+    def __init__(self, indicators):
         self.indicators_list = indicators
         
-    def run(self):
+    def run(self, url):
         results = []
         
         for indicator in self.indicators_list:
             r = indicator.evaluate(url)
             
-            if r != none:
+            if r != None:
                 results.append(r)
             
         return results

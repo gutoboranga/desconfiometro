@@ -1,6 +1,9 @@
 import requests
 from requests.exceptions import SSLError
+
 from desconfiometro.indicators.BaseIndicator import BaseIndicator
+from desconfiometro.blueprints.models.Result import Result
+
 
 class Certificate(BaseIndicator):
 

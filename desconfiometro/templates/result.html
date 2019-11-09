@@ -12,7 +12,7 @@
                   <p class="card-title-custom">{{ result.indicator_name }}</p>
                   <p class="card-subtitle">{{ result.indicator_description }}</p>
                 </div>
-                {% if result.type == 'bool' %}
+                {% if result.type == 'boolean' %}
                     <div class="card-icon-container">
                         {% if result.value == 0 %}
                             <img src="../static/img/not-ok.png" alt="">
