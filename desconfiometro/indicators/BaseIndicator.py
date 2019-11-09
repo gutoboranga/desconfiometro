@@ -4,8 +4,8 @@ class BaseIndicator():
     def __init__(self):
         pass
     
-    def getName(self):
+    def get_name(self):
         return "base_indicator"
     
-    def evaluate(self):
+    def evaluate(self, parsed_url):
         pass
