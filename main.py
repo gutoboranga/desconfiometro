@@ -1,11 +1,12 @@
 from urllib.parse import urlparse
+import requests
 
 from desconfiometro.indicators.Certificate import Certificate
 from desconfiometro.indicators.Greenlist import Greenlist
 from desconfiometro.indicators.DNS import DNS
 from desconfiometro.indicators.SpecialCharacters import SpecialCharacters
 
-parsed = urlparse('https://www.submarinoviagens.com.br')
+parsed = urlparse('https://www.submaarino.com.br')
 print(parsed.netloc)
 
 gl = Greenlist()
@@ -19,3 +20,4 @@ print(sc.get_name(), "Ok" if sc.evaluate(parsed) else "Not ok")
 
 ip = DNS()
 print(ip.get_name(), "Ok" if ip.evaluate(parsed) else "Not ok")
+

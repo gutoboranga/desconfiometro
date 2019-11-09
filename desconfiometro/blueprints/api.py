@@ -6,11 +6,12 @@ from desconfiometro.blueprints.models.Analyzer import Analyzer
 from desconfiometro.indicators.DNS import DNS
 from desconfiometro.indicators.Greenlist import Greenlist
 from desconfiometro.indicators.Certificate import Certificate
+from desconfiometro.indicators.Redirects import Redirects
 from desconfiometro.indicators.SpecialCharacters import SpecialCharacters
 
 
 api_blueprint = Blueprint('api', __name__)
-indicators = [Greenlist(), Certificate(), DNS(), SpecialCharacters()]
+indicators = [Greenlist(), Certificate(), DNS(), SpecialCharacters(), Redirects()]
 analyzer = Analyzer(indicators)
 
 @api_blueprint.route('/api', methods = ['GET'])
