@@ -9,6 +9,9 @@ class Greenlist(BaseIndicator):
     def get_name(self):
         return "Greenlist"
 
+    def get_type(self):
+        return "boolean"
+
     def evaluate(self, parsed_url):
         return self.contains(parsed_url.netloc)
 
