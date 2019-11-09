@@ -18,7 +18,7 @@ class Redirects(BaseIndicator):
         return "numeric"
 
     def evaluate(self, parsed_url):
-        return Result(self.get_name(), self.get_description(), self.count_redirects(parsed_url.netloc), self.get_type())
+        return Result(self.get_name(), self.get_description(), self.count_redirects(parsed_url), self.get_type())
 
     def count_redirects(self, parsed_url):
         response = requests.get(urlunparse(parsed_url))
