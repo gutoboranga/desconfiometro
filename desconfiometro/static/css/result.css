@@ -4,11 +4,28 @@
 }
 
 .result-subtitle {
-    font-size: 1em;
+    font-size: 1.5em;
+    font-weight: 200;
+    color: #eee;
+    margin: 0;
 }
 
 .result-number {
-    font-size: 4em;
+    font-size: 5em;
+    margin: 0;
+    margin-top: 0px;
+}
+
+.result-bar {
+    height: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    width: 80%;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.result-value-bar {
+    height: 100%;
 }
 
 .indicators-container {
