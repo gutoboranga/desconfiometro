@@ -1,3 +1,29 @@
-<h1>
-    Desconfiômetro
-</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Desconfiômetro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,600,700&display=swap" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" />
+  </head>
+  
+  <body>
+      <div class="header" align="center">
+          <h1>Desconfiômetro</h1><br>
+          <h2>Analise o quanto o site que você vai comprar um bagulho é confiável.</h2><br>
+      </div>
+      <div class="s01">
+        <form>
+          <div class="inner-form">
+            <div class="input-field first-wrap">
+              <input id="search" type="text" placeholder="Insira a URL do produto" />
+            </div>
+            <div class="input-field third-wrap">
+              <button class="btn-search" type="button">Analisar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
