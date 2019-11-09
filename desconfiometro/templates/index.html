@@ -2,10 +2,15 @@
 <html>
   <head>
     <title>Desconfiômetro</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,600,700&display=swap" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loadingCard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+    <script src="{{ url_for('static', filename='js/cors.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
   </head>
   
   <body>
@@ -14,16 +19,18 @@
           <h3>Analise o quanto o site que você vai comprar um bagulho é confiável.</h3><br>
       </div>
       <div class="s01">
-        <form>
+        <form id="url-form">
           <div class="inner-form">
             <div class="input-field first-wrap">
               <input id="search" type="text" placeholder="Insira a URL do produto" />
             </div>
             <div class="input-field third-wrap">
-              <button class="btn-search" type="button">Analisar</button>
+              <button class="btn-search" onclick="getData()" type="button" onclick="getData" method="get">Analisar</button>
             </div>
           </div>
         </form>
       </div>
+      
+      <div id="results_container"></div>
   </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
