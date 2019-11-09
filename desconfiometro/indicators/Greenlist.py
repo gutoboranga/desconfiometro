@@ -28,6 +28,6 @@ class Greenlist(BaseIndicator):
                 if line.strip() == item:
                     ok = True
                     break
-                line = self.file.readline()
+                line = f.readline()
                 
         return Result(self.get_name(), self.get_description(), (1 if ok else 0), self.get_type())
