@@ -11,15 +11,23 @@ from desconfiometro.indicators.SpecialCharacters import SpecialCharacters
 
 
 api_blueprint = Blueprint('api', __name__)
-indicators = [Greenlist(), Certificate(), DNS(), SpecialCharacters(), Redirects()]
-analyzer = Analyzer(indicators)
+weighted_indicators = [ (Greenlist(), 0.2),
+                        (Certificate(), 0.2),
+                        (DNS(), 0.2),
+                        (SpecialCharacters(), 0.2),
+                        (Redirects(), 0.2)]
+                        
+analyzer = Analyzer(weighted_indicators)
 
 @api_blueprint.route('/api', methods = ['GET'])
 @cross_origin()
 def get():
     parsed_url = urlparse(request.args['url'])
-    results = analyzer.run(parsed_url)
-    score = 8.0
+    
+    analyzer.run(parsed_url)
+    
+    results = analyzer.getResults()
+    score = analyzer.getScore()
     
     return render_template("result.html", results=results, score=score)
     

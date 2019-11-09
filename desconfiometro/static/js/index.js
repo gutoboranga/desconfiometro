@@ -9,6 +9,9 @@ function getData(event) {
     fetch(url)
         .then((resp) => resp.text())
         .then(function(data) {
+            let element = document.getElementById("results_container")
+            element.scrollIntoView(false)
+            
             document.getElementById('results_container').innerHTML = data
         })
 }
