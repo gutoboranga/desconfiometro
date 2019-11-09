@@ -1,0 +1,43 @@
+.result-container {
+    width: 100%;
+    margin: auto;
+}
+
+.result-subtitle {
+    font-size: 1em;
+}
+
+.result-number {
+    font-size: 4em;
+}
+
+.indicators-container {
+    background: rgba(0, 0, 0, 0.3);
+    width: 80%;
+    padding: 60px;
+}
+
+.card-subtitle {
+    color: #555;
+    font-size: 16px;
+    font-weight: 400;
+    justify: left;
+    text-align: left;
+}
+
+.card-title-custom {
+    color: #222;
+    font-size: 24px;
+    font-weight: 600;
+    justify: left;
+    text-align: left;
+}
+
+img {
+    width: 50px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 30px;
+}
