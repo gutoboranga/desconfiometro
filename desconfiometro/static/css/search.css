@@ -454,7 +454,7 @@ legend {
 }
 
 .s01 {
-    height: 70vh;
+    height: 50vh;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
@@ -463,7 +463,7 @@ legend {
       align-items: center;
   font-family: 'Nunito', sans-serif;
   background-size: cover;
-  background-position: center center;
+  margin-top: 1%;
 }
 
 .s01 form {
@@ -583,7 +583,7 @@ legend {
     padding: 20px;
   }
   .s01 form .inner-form .input-field {
-    margin-right: 0;
+    /* margin-right: 0; */
   }
   .s01 form .inner-form .input-field input {
     padding: 5px 15px;
@@ -594,13 +594,13 @@ legend {
     margin-bottom: 20px;
   }
   .s01 form .inner-form .input-field.second-wrap {
-    width: calc(50% - 10px);
+    width: 100%;
     min-width: auto;
   }
   .s01 form .inner-form .input-field.third-wrap {
-    width: calc(50% - 10px);
+    width: 100%;
   }
   .s01 form .inner-form .input-field.third-wrap .btn-search {
-    font-size: 16px;
+    width: 100%;
   }
 }
