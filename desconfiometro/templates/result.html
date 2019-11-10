@@ -38,9 +38,22 @@
                         ">/10</div>
                     </div>
                     {% endif %}
+                    
                     {% if result.type == 'numeric' %}
                     <div class="card-numeric-value-container" style="vertical-align: middle;">
                         <div class="card-numeric-value">{{ result.value }}</div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if result.type == 'tuple' %}
+                    <div class="card-icon-container" style="position: absolute; right: 0; margin-right: 30px; opacity: 0.6;">
+                        <div style="display: inline-flex; font-size: 20px; margin-top: 15px;">
+                            <i style="padding-right: 10px;" class="material-icons">thumb_up</i> {{ result.data[1] }}
+                        </div>
+                        <br>
+                        <div style="display: inline-flex; font-size: 20px; margin-top: 8px;">
+                            <i style="padding-right: 10px;" class="material-icons">thumb_down</i> {{ result.data[0] }}
+                        </div>
                     </div>
                     {% endif %}
                 {% endif %}

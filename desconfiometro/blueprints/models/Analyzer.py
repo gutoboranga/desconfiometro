@@ -1,3 +1,9 @@
+from desconfiometro.indicators.ReclameAqui import ReclameAqui
+from desconfiometro.indicators.Votes import Votes
+from desconfiometro.indicators.DNS import DNS
+from desconfiometro.blueprints.models.Result import Result
+
+
 class Analyzer():
     
     def __init__(self, weighted_indicators):
@@ -22,13 +28,34 @@ class Analyzer():
             
             result = indicator.evaluate(url)
             
-            print(result)
-            
             if result != None:
-                newResults.append(result)
                 newScore += result.value * weight
                 validWeightsSum += weight
-            
+                
+                if indicator.get_name() == Votes().get_name():
+                    newResults.insert(0, result)
+                elif indicator.get_name() == ReclameAqui().get_name():
+                    newResults.insert(0, result)
+                else:
+                    newResults.append(result)
+
+            elif indicator.get_name() == ReclameAqui().get_name():
+                r = Result(indicator.get_name(), "O link pesquisado não foi encontrado no ReclameAqui. Para um e-commerce isto pode ser um mau indicativo.", 0, 'boolean')
+                
+                newResults.append(r)
+                newScore += 0
+                validWeightsSum += weight
+                
+            elif indicator.get_name() == DNS().get_name():
+                
+                r = Result(indicator.get_name(), "O endereço do link inserido não é registrado no Brasil", 0, 'boolean')
+                
+                newResults = [r]
+
+                newScore = 0
+                validWeightsSum = 1
+                break
+        
         self.results = newResults
         self.score = self.score = round(newScore / validWeightsSum, 2)
         

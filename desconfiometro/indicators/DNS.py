@@ -29,8 +29,9 @@ class DNS(BaseIndicator):
             if reg != "":
                 ok = True
             elif reg == "":
-                ok = False
-        return Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
+                ok = None
+        
+        return None if (ok == None) else Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
 
     def isIP(self, netloc):
         return True if re.match(self.ip_regex, netloc) else False
