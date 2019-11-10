@@ -33,6 +33,8 @@ class Certificate(BaseIndicator):
             ok = True
         except SSLError:
             ok = False
+        except:
+            ok = None
 
 
         return None if (ok == None) else Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
