@@ -29,10 +29,11 @@
     height: 100%;
 }
 
-.indicators-container {
+.board-container {
     background: rgba(0, 0, 0, 0.3);
     width: 80%;
     padding: 60px;
+    margin-bottom: 24px;
 }
 
 .card-subtitle {
@@ -74,7 +75,7 @@
     margin-top: 36px;
 }
 
-img {
+.card-icon {
     width: 50px;
     position: absolute;
     margin: auto;
@@ -83,6 +84,30 @@ img {
     right: 30px;
 }
 
-#results_container {
-    margin-bottom: 30px;
+.like-dislike-container {
+    width: 100%;
+}
+
+.like-dislike-btn {
+    height: 80px;
+    width: 80px;
+    white-space: nowrap;
+    border-radius: .5px;
+    font-size: 20px;
+    transition: all .2s ease-out, color .2s ease-out;
+    border: 0;
+    cursor: pointer;
+    margin: 24px 4em 0 4em;
+    background: rgba(0,0,0,0);
+    background-color: transparent;
+}
+
+button:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.like-dislike-icon {
+    height: 100%;
+    background: rgba(0,0,0,0);
 }

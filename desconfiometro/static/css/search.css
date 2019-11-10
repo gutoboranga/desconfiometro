@@ -544,7 +544,7 @@ legend {
 .s01 form .inner-form .input-field.third-wrap .btn-search {
   height: 100%;
   width: 100%;
-  background: #4272d7;
+  background: #028ba3;
   white-space: nowrap;
   border-radius: .5px;
   font-size: 20px;
@@ -555,7 +555,7 @@ legend {
 }
 
 .s01 form .inner-form .input-field.third-wrap .btn-search:hover {
-  background: #2d62d3;
+  background: #00758a;
 }
 
 @media screen and (max-width: 992px) {

@@ -12,12 +12,12 @@ from desconfiometro.indicators.ReclameAqui import ReclameAqui
 
 
 api_blueprint = Blueprint('api', __name__)
-weighted_indicators = [ (Greenlist(), 0.2),
+weighted_indicators = [ (ReclameAqui(), 0.3),
+                        (Greenlist(), 0.2),
                         (Certificate(), 0.3),
                         (DNS(), 0.2),
                         (SpecialCharacters(), 0.1),
-                        (Redirects(), 0.15),
-                        (ReclameAqui(), 0.3)]
+                        (Redirects(), 0.15)]
 
 analyzer = Analyzer(weighted_indicators)
 
