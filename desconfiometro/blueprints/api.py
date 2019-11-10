@@ -8,6 +8,7 @@ from desconfiometro.indicators.Greenlist import Greenlist
 from desconfiometro.indicators.Certificate import Certificate
 from desconfiometro.indicators.Redirects import Redirects
 from desconfiometro.indicators.SpecialCharacters import SpecialCharacters
+from desconfiometro.indicators.ReclameAqui import ReclameAqui
 
 
 api_blueprint = Blueprint('api', __name__)
@@ -15,7 +16,8 @@ weighted_indicators = [ (Greenlist(), 0.2),
                         (Certificate(), 0.2),
                         (DNS(), 0.2),
                         (SpecialCharacters(), 0.2),
-                        (Redirects(), 0.2)]
+                        (Redirects(), 0.15),
+                        (ReclameAqui(), 0.3)]
                         
 analyzer = Analyzer(weighted_indicators)
 

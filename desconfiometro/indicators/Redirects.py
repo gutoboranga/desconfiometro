@@ -17,10 +17,22 @@ class Redirects(BaseIndicator):
     def get_type(self):
         return "numeric"
 
+    def make_score(self, count):
+        if count == 0:
+            return 10
+        if count <= 3:
+            return (1/count) * 9
+        if count > 3:
+            return 0
+
     def evaluate(self, parsed_url):
-        return Result(self.get_name(), self.get_description(), self.count_redirects(parsed_url), self.get_type())
+        n = self.count_redirects(parsed_url)
+        return None if (n == None) else Result(self.get_name(), self.get_description(), make_score(n), self.get_type())
 
     def count_redirects(self, parsed_url):
-        response = requests.get(urlunparse(parsed_url))
-        return len(response.history)
+        try:
+            response = requests.get(urlunparse(parsed_url))
+            return make_score(len(response.history))
+        except:
+            return None
 

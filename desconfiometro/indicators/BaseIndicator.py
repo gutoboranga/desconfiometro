@@ -12,6 +12,9 @@ class BaseIndicator():
 
     def get_type(self):
         return "default"
+        
+    def make_score(self):
+        return -1
     
     def evaluate(self, parsed_url):
         pass
