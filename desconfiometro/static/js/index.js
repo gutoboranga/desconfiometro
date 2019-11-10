@@ -5,7 +5,7 @@ function getData(event) {
     let site = document.getElementById('search').value
     
     if (!validURL(site)) {
-        alert("O link inserido não é válido.")
+        alert("O link inserido não é válido")
         return
     }
     
