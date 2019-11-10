@@ -16,7 +16,7 @@ weighted_indicators = [ (Greenlist(), 0.2),
                         (DNS(), 0.2),
                         (SpecialCharacters(), 0.2),
                         (Redirects(), 0.2)]
-                        
+
 analyzer = Analyzer(weighted_indicators)
 
 @api_blueprint.route('/api', methods = ['GET'])
@@ -30,4 +30,3 @@ def get():
     score = analyzer.getScore()
     
     return render_template("result.html", results=results, score=score)
-    

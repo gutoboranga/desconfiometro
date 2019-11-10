@@ -3,7 +3,7 @@ from desconfiometro.indicators.BaseIndicator import BaseIndicator
 from desconfiometro.blueprints.models.Result import Result
 
 
-class Greenlist(BaseIndicator):
+class ReclameAqui(BaseIndicator):
     def __init__(self):
         pass
 

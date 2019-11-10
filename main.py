@@ -8,9 +8,11 @@ from selenium.webdriver.chrome.options import Options
 
 
 from desconfiometro.indicators.Certificate import Certificate
+from desconfiometro.indicators.ReclameAqui import ReclameAqui
 from desconfiometro.indicators.Greenlist import Greenlist
 from desconfiometro.indicators.DNS import DNS
 from desconfiometro.indicators.SpecialCharacters import SpecialCharacters
+from desconfiometro.indicators.data.VotesRepository import VotesRepository
 
 parsed = urlparse('https://www.submarinoviagens.com.br')
 print(parsed.netloc)
@@ -21,18 +23,8 @@ print(gl.get_name(), "Ok" if gl.evaluate(parsed) else "Not ok")
 crt = Certificate()
 print(crt.get_name(), "Ok" if crt.evaluate(parsed) else "Not ok")
 
-sc = SpecialCharacters()
+sc = ReclameAqui()
 print(sc.get_name(), "Ok" if sc.evaluate(parsed) else "Not ok")
 
-ip = DNS()
-print(ip.get_name(), "Ok" if ip.evaluate(parsed) else "Not ok")
-
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-driver = webdriver.Chrome(chrome_options=chrome_options)
-try:
-    driver.get("https://www.reclameaqui.com.br/busca/?q=" + parsed.netloc)
-    html = driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
-    print(html)
-except:
-    print("")
+vr = VotesRepository("negative_votes.txt")
+print("votes: ", vr.get_votes(parsed.netloc))
