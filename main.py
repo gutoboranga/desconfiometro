@@ -1,6 +1,7 @@
 from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
+from desconfiometro.indicators.utils import get_registro_br
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -33,3 +34,5 @@ print(ip.get_name(), "Ok" if ip.evaluate(parsed) else "Not ok")
 
 v = Votes()
 print("votes: ", v.evaluate(parsed).value)
+
+print(get_registro_br(parsed))
