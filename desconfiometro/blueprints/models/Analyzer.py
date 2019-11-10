@@ -22,6 +22,8 @@ class Analyzer():
             
             result = indicator.evaluate(url)
             
+            print(result)
+            
             if result != None:
                 newResults.append(result)
                 newScore += result.value * weight
