@@ -20,7 +20,7 @@ class CNPJ(BaseIndicator):
         return "Confere se a empresa por trás do link possui CNPJ e seu respectivo status"
 
     def get_type(self):
-        return "boolean"
+        return "cnpj"
 
     def make_score(self, state):
         return 10 if state == "Ativa" else 0

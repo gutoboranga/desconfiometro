@@ -12,11 +12,27 @@
                   <p class="card-title-custom">{{ result.indicator_name }}</p>
                   <p class="card-subtitle">{{ result.indicator_description }}</p>
                   {% if result.type == 'ra' %}
-                      <br><br>
+                      <br>
                       <p class="card-subtitle"><b>Empresa encontrada:</b></p>
                       <p class="card-subtitle">{{ result.data }}</p>
                   {% endif %}
+                  
+                  {% if result.type == 'cnpj' and result.value != 0 %}
+                      <br><br>
+                      <p class="card-subtitle"><b>CPNJ encontrado:</b></p>
+                      <p class="card-subtitle">{{ result.data[0] }}; <b>Status:</b> {{ result.data[1] }}</p>
+                  {% endif %}
+                  
                 </div>
+                {% if result.type == 'cnpj' %}
+                    <div class="card-icon-container">
+                        {% if result.value == 0 %}
+                            <img class="card-icon" src="../static/img/not-ok.png" alt="">
+                        {% else %}
+                            <img class="card-icon" src="../static/img/ok.png" alt="">
+                        {% endif %}
+                    </div>
+                {% endif %}
                 {% if result.type == 'boolean' %}
                     <div class="card-icon-container">
                         {% if result.value == 0 %}

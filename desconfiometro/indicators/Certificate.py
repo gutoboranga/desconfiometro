@@ -10,10 +10,10 @@ class Certificate(BaseIndicator):
         pass
 
     def get_name(self):
-        return "Certificados"
+        return "Certificados digitais"
 
     def get_description(self):
-        return "Confere se possui certificados válidos"
+        return "Confere se o site possui certificados válidos. Um certificado digital é um arquivo eletrônico que serve como identidade virtual para uma pessoa física ou jurídica e auxilia na proteção nas trocas de informação."
 
     def get_type(self):
         return "boolean"
