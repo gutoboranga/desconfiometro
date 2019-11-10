@@ -20,6 +20,7 @@ h3 {
 
 body {
     background-color: #0268A3;
+    background: linear-gradient(to bottom right, #005e95 0%, #0080b8 84%);
     font-family: 'Nunito', sans-serif;
 }
 
