@@ -8,7 +8,7 @@ class SpecialCharacters(BaseIndicator):
         self.special_chars = ['-']
 
     def get_name(self):
-        return "Caracteres especiais"
+        return "Ausência de caracteres especiais"
         
     def get_description(self):
         return "Sites de empresas bastante confiávies geralmente não possuem caracteres especiais no seu domínio"

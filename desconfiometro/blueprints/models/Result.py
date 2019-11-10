@@ -5,3 +5,4 @@ class Result():
         self.indicator_description = indicator_description
         self.value = value
         self.type = type
+        self.data = ""

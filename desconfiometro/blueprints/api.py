@@ -14,8 +14,8 @@ from desconfiometro.indicators.ReclameAqui import ReclameAqui
 api_blueprint = Blueprint('api', __name__)
 weighted_indicators = [ (ReclameAqui(), 0.3),
                         (Greenlist(), 0.2),
-                        (Certificate(), 0.3),
                         (DNS(), 0.2),
+                        (Certificate(), 0.3),
                         (SpecialCharacters(), 0.1),
                         (Redirects(), 0.15)]
 
@@ -33,7 +33,7 @@ def get():
     score = analyzer.getScore()
     color = get_color(score)
 
-    return render_template("result.html", results=results, score=score, color=color)
+    return render_template("result.html", results=results, score=int(score * 10), color=color)
     
 def get_color(score):
     if score <= 2:

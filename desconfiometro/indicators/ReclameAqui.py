@@ -21,17 +21,25 @@ class ReclameAqui(BaseIndicator):
                "boa reputação é fundamental"
 
     def get_type(self):
-        return "numeric"
+        return "ra"
         
     def make_score(self, rating):
         return rating
 
     def evaluate(self, parsed_url):
         print("WILL GET RATING")
-        rating = self.get_rating(parsed_url.netloc)
-        return None if (rating == None) else Result(self.get_name(), self.get_description(), self.make_score(rating), self.get_type())
+        x = self.scrap(parsed_url.netloc)
+        
+        if x == None:
+            return None
+        else:
+            rating = x[0]
+            name = x[1]
+            r = Result(self.get_name(), self.get_description(), self.make_score(rating), self.get_type())
+            r.data = name
+            return r
 
-    def get_rating(self, netloc):
+    def scrap(self, netloc):
         try:
             chrome_options = Options()
             chrome_options.add_argument("--headless")
@@ -42,10 +50,22 @@ class ReclameAqui(BaseIndicator):
             
             html = driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
             soup = BeautifulSoup(html, 'html.parser')
-            divs = soup.find_all(class_='score-search col-md-3 ng-binding ng-scope')
             
-            first = divs[0]
             
-            return float(first.text.strip())
+            
+            # cards = soup.find_all(class_='card-list-search ng-scope slick-slide slick-current slick-active')
+            # card_soup = BeautifulSoup(cards[0], 'html.parser')
+            #
+            cards = soup.find_all(class_='card-list-search ng-scope slick-slide slick-current slick-active')
+            card = cards[0]
+            items = card.text.strip().split('    ')
+            
+            name = items[1].strip()
+            rating = float(items[8].strip())
+            
+            # name = card_soup.find_all(class_='hidden-xs')[0].text.strip()
+            # rating = float(card_soup.find_all(class_='score-search col-md-3 ng-binding ng-scope')[0].text.strip())
+            
+            return rating, name
         except:
             return None
