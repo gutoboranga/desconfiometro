@@ -21,7 +21,7 @@ class Redirects(BaseIndicator):
         if count == 0:
             return 10
         if count <= 3:
-            return (1/count) * 9
+            return (1 / count) * 9
         if count > 3:
             return 0
 
@@ -29,12 +29,12 @@ class Redirects(BaseIndicator):
         n = self.count_redirects(parsed_url)
         print("NUMERO DE REDIRECTS: ")
         print(n)
-        return None if (n == None) else Result(self.get_name(), self.get_description(), make_score(n), self.get_type())
+        return None if (n is None) else Result(self.get_name(), self.get_description(), self.make_score(n), self.get_type())
 
     def count_redirects(self, parsed_url):
         try:
             response = requests.get(urlunparse(parsed_url))
-            return make_score(len(response.history))
-        except:
+            return self.make_score(len(response.history))
+        except Exception as e:
+            print(e)
             return None
-

@@ -1,6 +1,8 @@
 from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
+
+from desconfiometro.indicators.Redirects import Redirects
 from desconfiometro.indicators.utils import get_registro_br
 
 from selenium import webdriver
@@ -19,17 +21,14 @@ from desconfiometro.indicators.data.VotesRepository import VotesRepository
 
 from desconfiometro.indicators.CNPJ import CNPJ
 
-parsed = urlparse('https://www.submarinoviagens.com.br/index')
+parsed = urlparse('submarino.com.br')
 print(parsed.netloc)
-
-gl = Greenlist()
-print(gl.get_name(), "Ok" if gl.evaluate(parsed) else "Not ok")
 
 # sc = ReclameAqui()
 # print(sc.get_name(), "Ok" if sc.evaluate(parsed) else "Not ok")
 
 cnpj = CNPJ()
-print(cnpj.get_name(), cnpj.evaluate(parsed).value)
+cnpj.evaluate(parsed)
 
-v = Votes()
-print("votes: ", v.evaluate(parsed).value)
+# red = Redirects()
+# print("redirects: ", red.evaluate(parsed).value)

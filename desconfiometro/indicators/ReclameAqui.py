@@ -22,14 +22,14 @@ class ReclameAqui(BaseIndicator):
 
     def get_type(self):
         return "ra"
-        
+
     def make_score(self, rating):
         return rating
 
     def evaluate(self, parsed_url):
         print("WILL GET RATING")
         x = self.scrap(parsed_url.netloc)
-        
+
         if x == None:
             return None
         else:
@@ -43,29 +43,27 @@ class ReclameAqui(BaseIndicator):
         try:
             chrome_options = Options()
             chrome_options.add_argument("--headless")
-            
+
             driver = webdriver.Chrome(chrome_options=chrome_options)
             url = "https://www.reclameaqui.com.br/busca/?q=" + netloc
             driver.get(url)
-            
+
             html = driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
             soup = BeautifulSoup(html, 'html.parser')
-            
-            
-            
+
             # cards = soup.find_all(class_='card-list-search ng-scope slick-slide slick-current slick-active')
             # card_soup = BeautifulSoup(cards[0], 'html.parser')
             #
             cards = soup.find_all(class_='card-list-search ng-scope slick-slide slick-current slick-active')
             card = cards[0]
             items = card.text.strip().split('    ')
-            
+
             name = items[1].strip()
             rating = float(items[8].strip())
-            
+
             # name = card_soup.find_all(class_='hidden-xs')[0].text.strip()
             # rating = float(card_soup.find_all(class_='score-search col-md-3 ng-binding ng-scope')[0].text.strip())
-            
+
             return rating, name
         except:
             return None

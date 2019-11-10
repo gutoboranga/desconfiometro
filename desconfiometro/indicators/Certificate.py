@@ -6,13 +6,12 @@ from desconfiometro.blueprints.models.Result import Result
 
 
 class Certificate(BaseIndicator):
-
     def __init__(self):
         pass
 
     def get_name(self):
         return "Certificados"
-        
+
     def get_description(self):
         return "Confere se possui certificados válidos"
 
@@ -29,13 +28,11 @@ class Certificate(BaseIndicator):
         ok = None
         print(netloc)
         try:
-            requests.get('https://' + netloc, timeout = 3)
+            requests.get('https://' + netloc, timeout=3)
             ok = True
         except SSLError:
             ok = False
         except:
             ok = None
-
-
-        return None if (ok == None) else Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
-        
+        return None if (ok is None) else Result(self.get_name(), self.get_description(), self.make_score(ok),
+                                                self.get_type())
