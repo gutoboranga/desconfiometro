@@ -18,7 +18,7 @@ class ReclameAqui(BaseIndicator):
 
     def get_description(self):
         return "O ReclameAqui reúne denúncias e resoluções de casos relatados por usuários, possuir um usuário e uma " \
-               "boa reputação é fundamental."
+               "boa reputação é fundamental"
 
     def get_type(self):
         return "numeric"

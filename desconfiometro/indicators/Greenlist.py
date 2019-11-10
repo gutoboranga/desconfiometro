@@ -10,7 +10,7 @@ class Greenlist(BaseIndicator):
         return "Lista dos sites confiáveis"
         
     def get_description(self):
-        return "Este site está na nossa lista de sites super confiáveis."
+        return "Este site está na nossa lista de sites super confiáveis"
 
     def get_type(self):
         return "boolean"

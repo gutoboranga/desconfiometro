@@ -14,7 +14,7 @@ class DNS(BaseIndicator):
         return "DNS"
         
     def get_description(self):
-        return "Confere se o endereço que aparece no \"link\" é registrado."
+        return "Confere se o endereço que aparece no link é registrado no Brasil"
 
     def get_type(self):
         return "boolean"

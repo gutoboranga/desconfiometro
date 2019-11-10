@@ -13,7 +13,7 @@ class CNPJ(BaseIndicator):
         return "CNPJ"
 
     def get_description(self):
-        return "Confere se a empresa por trás do link possui CNPJ e seu respectivo status."
+        return "Confere se a empresa por trás do link possui CNPJ e seu respectivo status"
 
     def get_type(self):
         return "boolean"
