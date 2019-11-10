@@ -3,6 +3,7 @@
   <head>
     <title>Desconfiômetro</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
@@ -16,13 +17,13 @@
   <body>
       <div class="header" align="center">
           <h1>Desconfiômetro</h1><br>
-          <h3>Analise o quanto o site que você vai comprar um bagulho é confiável.</h3><br>
+          <h3>Analise a confiabilidade dos sites de compras na internet</h3><br>
       </div>
       <div class="s01">
         <form id="url-form">
           <div class="inner-form">
             <div class="input-field first-wrap">
-              <input id="search" type="text" placeholder="Insira a URL do produto" />
+              <input id="search" type="text" placeholder="Insira o link do produto ou da loja" />
             </div>
             <div class="input-field third-wrap">
               <button id="btn-search" class="btn-search" onclick="getData()" type="button" onclick="getData" method="get">Analisar</button>
