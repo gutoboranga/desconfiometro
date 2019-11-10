@@ -1,0 +1,42 @@
+{
+  "ni": "34428654000132",
+  "data_abertura": "1998-06-04",
+  "nome_empresarial": "ASM DIGITAL S.A.",
+  "nome_fantasia": "",
+  "cnae_principal": {
+    "codigo": "6110801",
+    "descricao": "Serviços de telefonia fixa comutada - STFC"
+  },
+  "natureza_juridica": {
+    "codigo": "2046",
+    "descricao": "Sociedade Anônima Aberta"
+  },
+  "endereco": {
+    "logradouro": "AV ENGENHEIRO LUIZ CARLOS BERRINI",
+    "numero": "1376",
+    "complemento": "",
+    "cep": "04571936",
+    "bairro": "CIDADE MONCOES",
+    "municipio": "SAO PAULO",
+    "uf": "SP"
+  },
+  "situacao_especial": "",
+  "situacao_cadastral": {
+    "codigo": "5",
+    "data": "2016-12-20",
+    "motivo": ""
+  },
+  "orgao": "0818000",
+  "tipo_estabelecimento": "1",
+  "correio_eletronico": "CONTATO@ASMDIGITAL.COM",
+  "capital_social": 6357141586509,
+  "porte": "05",
+  "telefones": [
+    {
+      "ddd": "11",
+      "numero": "34300000"
+    }
+  ],
+  "nome_orgao": "SAO PAULO",
+  "ente_federativo": ""
+}

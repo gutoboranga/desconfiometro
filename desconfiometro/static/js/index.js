@@ -16,7 +16,7 @@ function getData(event) {
             document.getElementById('results_container').innerHTML = data
             
             let element = document.getElementById("results_container")
-            element.scrollIntoView(false)
+            element.scrollIntoView(true)
         })
         .then(function(r) {
             stopLoading()

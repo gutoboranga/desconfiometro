@@ -1,0 +1,42 @@
+{
+   "ni":"34238864000168",
+   "data_abertura":"1967-06-30",
+   "nome_empresarial":"SERVICO DE E-COMERCE LTDA",
+   "nome_fantasia":"E-COMERCE",
+   "cnae_principal":{
+      "codigo":"6204000",
+      "descricao":"Consultoria em e-comerce"
+   },
+   "natureza_juridica":{
+      "codigo":"2011",
+      "descricao":"Empresa Privada"
+   },
+   "endereco":{
+      "logradouro":"ST DE GRANDE AREA NORTE",
+      "numero":"Q.601",
+      "complemento":"LOTE V",
+      "cep":"70836900",
+      "bairro":"ASA NORTE",
+      "municipio":"BRASILIA",
+      "uf":"DF"
+   },
+   "situacao_especial":"",
+   "situacao_cadastral":{
+      "codigo":"2",
+      "data":"2004-05-22",
+      "motivo":""
+   },
+   "orgao":"0110100",
+   "tipo_estabelecimento":"1",
+   "correio_eletronico":"",
+   "capital_social":0,
+   "porte":"05",
+   "telefones":[
+      {
+         "ddd":"061",
+         "numero":"4338456"
+      }
+   ],
+   "nome_orgao":"BRASILIA",
+   "ente_federativo":"BR"
+}

@@ -14,18 +14,24 @@ class Analyzer():
     def run(self, url):
         newResults = []
         newScore = 0.0
+        validWeightsSum = 0.0
         
-        for indicator in self.weighted_indicators:
-            r = indicator[0].evaluate(url)
-            w = indicator[1]
+        for weighted_indicator in self.weighted_indicators:
+            indicator = weighted_indicator[0]
+            weight = weighted_indicator[1]
             
-            if r != None:
-                newResults.append(r)
-                
-                if r.type == 'boolean':
-                    w = w * 10
-                
-                newScore += r.value * w
+            result = indicator.evaluate(url)
+            
+            print(result)
+            
+            if result != None:
+                newResults.append(result)
+                newScore += result.value * weight
+                validWeightsSum += weight
             
         self.results = newResults
-        self.score = newScore
+        self.score = self.score = round(newScore / validWeightsSum, 2)
+        
+        if self.score > 10.0:
+            self.scope = 10.0
+

@@ -1,3 +1,9 @@
+from bs4 import BeautifulSoup
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+
 import requests
 from desconfiometro.indicators.BaseIndicator import BaseIndicator
 from desconfiometro.blueprints.models.Result import Result
@@ -16,12 +22,30 @@ class ReclameAqui(BaseIndicator):
 
     def get_type(self):
         return "numeric"
+        
+    def make_score(self, rating):
+        return rating
 
     def evaluate(self, parsed_url):
-        return self.get_rating(parsed_url.netloc)
+        print("WILL GET RATING")
+        rating = self.get_rating(parsed_url.netloc)
+        return None if (rating == None) else Result(self.get_name(), self.get_description(), self.make_score(rating), self.get_type())
 
     def get_rating(self, netloc):
-        r = requests.get(url=netloc)
-        data = r.content
-
-        return Result(self.get_name(), self.get_description(), (1 if ok else 0), self.get_type())
+        try:
+            chrome_options = Options()
+            chrome_options.add_argument("--headless")
+            
+            driver = webdriver.Chrome(chrome_options=chrome_options)
+            url = "https://www.reclameaqui.com.br/busca/?q=" + netloc
+            driver.get(url)
+            
+            html = driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
+            soup = BeautifulSoup(html, 'html.parser')
+            divs = soup.find_all(class_='score-search col-md-3 ng-binding ng-scope')
+            
+            first = divs[0]
+            
+            return float(first.text.strip())
+        except:
+            return None

@@ -14,6 +14,9 @@ class Greenlist(BaseIndicator):
 
     def get_type(self):
         return "boolean"
+        
+    def make_score(self, ok):
+        return 10 if ok else 0
 
     def evaluate(self, parsed_url):
         return self.is_greenlisted(parsed_url.netloc)
@@ -28,6 +31,6 @@ class Greenlist(BaseIndicator):
                 if line.strip() == item:
                     ok = True
                     break
-                line = self.file.readline()
+                line = f.readline()
                 
-        return Result(self.get_name(), self.get_description(), (1 if ok else 0), self.get_type())
+        return Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())

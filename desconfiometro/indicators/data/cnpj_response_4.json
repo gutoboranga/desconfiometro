@@ -1,0 +1,42 @@
+{
+  "ni": "31151791000184",
+  "data_abertura": "1992-04-23",
+  "nome_empresarial": "OBVIO S.A.",
+  "nome_fantasia": "OBVIO",
+  "cnae_principal": {
+    "codigo": "6120501",
+    "descricao": "Telefonia móvel celular"
+  },
+  "natureza_juridica": {
+    "codigo": "2054",
+    "descricao": "Sociedade Anônima Fechada"
+  },
+  "endereco": {
+    "logradouro": "R FLORIDA",
+    "numero": "1970",
+    "complemento": "",
+    "cep": "04565001",
+    "bairro": "CIDADE MOCOES",
+    "municipio": "SAO PAULO",
+    "uf": "SP"
+  },
+  "situacao_especial": "",
+  "situacao_cadastral": {
+    "codigo": "4",
+    "data": "2005-11-03",
+    "motivo": ""
+  },
+  "orgao": "0818000",
+  "tipo_estabelecimento": "1",
+  "correio_eletronico": "ATENDIMENTO@OBVIO.COM.BR",
+  "capital_social": 1871664302621,
+  "porte": "05",
+  "telefones": [
+    {
+      "ddd": "11",
+      "numero": "21322161"
+    }
+  ],
+  "nome_orgao": "SAO PAULO",
+  "ente_federativo": ""
+}

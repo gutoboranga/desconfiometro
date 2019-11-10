@@ -1,0 +1,46 @@
+{
+  "ni": "54447820000155",
+  "data_abertura": "1995-08-22",
+  "nome_empresarial": "BMS DIGITAL",
+  "nome_fantasia": "",
+  "cnae_principal": {
+    "codigo": "4789099",
+    "descricao": "Comércio varejista de outros produtos não especificados anteriormente"
+  },
+  "natureza_juridica": {
+    "codigo": "2046",
+    "descricao": "SOCIEDADE ANONIMA ABERTA"
+  },
+  "endereco": {
+    "logradouro": "R HENRY FORD",
+    "numero": "643",
+    "complemento": "",
+    "cep": "06210108",
+    "bairro": "PRESIDENTE ALTINO",
+    "municipio": "OSASCO",
+    "uf": "SP"
+  },
+  "situacao_especial": "",
+  "situacao_cadastral": {
+    "codigo": "2",
+    "data": "2005-11-03",
+    "motivo": ""
+  },
+  "orgao": "0811300",
+  "tipo_estabelecimento": "2",
+  "correio_eletronico": "CONTATO@BMS.COM",
+  "capital_social": 445897042592,
+  "porte": "05",
+  "telefones": [
+    {
+      "ddd": "11",
+      "numero": "40034848"
+    },
+    {
+      "ddd": "11",
+      "numero": "40035544"
+    }
+  ],
+  "nome_orgao": "OSASCO",
+  "ente_federativo": ""
+}
