@@ -9,10 +9,10 @@ class Redirects(BaseIndicator):
         pass
 
     def get_name(self):
-        return "Número de redirects"
+        return "Número de redirecionamentos"
 
     def get_description(self):
-        return "Páginas com muitos redirects tendem a ser fraudulentas"
+        return "Um alto número de redirecionamentos pode indicar que página é fraudulentas."
 
     def get_type(self):
         return "numeric"
@@ -27,6 +27,8 @@ class Redirects(BaseIndicator):
 
     def evaluate(self, parsed_url):
         n = self.count_redirects(parsed_url)
+        print("NUMERO DE REDIRECTS: ")
+        print(n)
         return None if (n == None) else Result(self.get_name(), self.get_description(), make_score(n), self.get_type())
 
     def count_redirects(self, parsed_url):

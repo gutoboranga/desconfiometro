@@ -7,10 +7,10 @@ class Greenlist(BaseIndicator):
         self.filename = 'desconfiometro/indicators/data/greenlist.txt'
 
     def get_name(self):
-        return "Lista dos confirmados"
+        return "Lista dos sites confiáveis"
         
     def get_description(self):
-        return "Confere se é um dos confirmados"
+        return "Este site está na nossa lista de sites super confiáveis."
 
     def get_type(self):
         return "boolean"
@@ -33,4 +33,4 @@ class Greenlist(BaseIndicator):
                     break
                 line = f.readline()
                 
-        return Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
+        return None if not ok else Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())

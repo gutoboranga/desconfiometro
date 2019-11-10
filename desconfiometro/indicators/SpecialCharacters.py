@@ -11,7 +11,7 @@ class SpecialCharacters(BaseIndicator):
         return "Caracteres especiais"
         
     def get_description(self):
-        return "Confere se tem - e etc bla bla"
+        return "Sites de empresas bastante confiávies geralmente não possuem caracteres especiais no seu domínio"
 
     def get_type(self):
         return "boolean"
