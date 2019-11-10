@@ -1,5 +1,6 @@
 from desconfiometro.indicators.BaseIndicator import BaseIndicator
 from desconfiometro.blueprints.models.Result import Result
+from desconfiometro.indicators.utils import get_registro_br
 
 import re
 
@@ -22,7 +23,13 @@ class DNS(BaseIndicator):
         return 10 if ok else 0
 
     def evaluate(self, parsed_url):
-        ok = not self.isIP(parsed_url.netloc)
+        ok = None
+        if not self.isIP(parsed_url.netloc):
+            reg = get_registro_br(parsed_url.netloc)
+            if reg != "":
+                ok = True
+            elif reg == "":
+                ok = False
         return Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
 
     def isIP(self, netloc):

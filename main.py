@@ -17,22 +17,17 @@ from desconfiometro.indicators.Votes import Votes
 from desconfiometro.indicators.data.NegativeVotesRepository import NegativeVotesRepository
 from desconfiometro.indicators.data.VotesRepository import VotesRepository
 
-parsed = urlparse('https://www.submarinoviagens.com.br')
+parsed = urlparse('https://www.submarinoviagens.com.br/index')
 print(parsed.netloc)
 
 gl = Greenlist()
 print(gl.get_name(), "Ok" if gl.evaluate(parsed) else "Not ok")
 
-crt = Certificate()
-print(crt.get_name(), "Ok" if crt.evaluate(parsed) else "Not ok")
-
 # sc = ReclameAqui()
 # print(sc.get_name(), "Ok" if sc.evaluate(parsed) else "Not ok")
 
 ip = DNS()
-print(ip.get_name(), "Ok" if ip.evaluate(parsed) else "Not ok")
+print(ip.get_name(), ip.evaluate(parsed).value)
 
 v = Votes()
 print("votes: ", v.evaluate(parsed).value)
-
-print(get_registro_br(parsed))
