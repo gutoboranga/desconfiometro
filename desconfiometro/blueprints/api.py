@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 from desconfiometro.blueprints.models.Analyzer import Analyzer
 from desconfiometro.indicators.DNS import DNS
 from desconfiometro.indicators.Greenlist import Greenlist
+from desconfiometro.indicators.Votes import Votes
 from desconfiometro.indicators.Certificate import Certificate
 from desconfiometro.indicators.Redirects import Redirects
 from desconfiometro.indicators.SpecialCharacters import SpecialCharacters
@@ -12,10 +13,11 @@ from desconfiometro.indicators.ReclameAqui import ReclameAqui
 
 
 api_blueprint = Blueprint('api', __name__)
-weighted_indicators = [ (ReclameAqui(), 0.3),
-                        (Greenlist(), 0.2),
-                        (DNS(), 0.2),
-                        (Certificate(), 0.3),
+weighted_indicators = [ (DNS(), 0.2),
+                        (Votes(), 0.3),
+                        (ReclameAqui(), 0.5),
+                        (Greenlist(), 1.0),
+                        (Certificate(), 0.5),
                         (SpecialCharacters(), 0.1),
                         (Redirects(), 0.15)]
 

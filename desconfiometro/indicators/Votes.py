@@ -21,8 +21,23 @@ class Votes(BaseIndicator):
         return "tuple"
 
     def evaluate(self, parsed_url):
-        return Result(self.get_name(),
+        negative = self.negative_votes_repository.get_votes(parsed_url.netloc)
+        positive = self.positive_votes_repository.get_votes(parsed_url.netloc)
+        
+        if negative == 0 and positive == 0:
+            return None
+        
+        if positive > 0:
+            score = (negative / positive) * 10
+        else:
+            score = 0
+        
+        r = Result(self.get_name(),
                       self.get_description(),
-                      (self.negative_votes_repository.get_votes(parsed_url.netloc),
-                       self.positive_votes_repository.get_votes(parsed_url.netloc)),
+                      score,
                       self.get_type())
+                      
+        r.data = (negative, positive)
+        
+        return r
+                     
