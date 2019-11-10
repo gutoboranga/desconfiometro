@@ -27,7 +27,7 @@ class ReclameAqui(BaseIndicator):
         return rating
 
     def evaluate(self, parsed_url, registro_br):
-        print("WILL GET RATING")
+        
         x = self.scrap(parsed_url.netloc)
 
         if x == None:
@@ -45,13 +45,15 @@ class ReclameAqui(BaseIndicator):
             chrome_options.add_argument("--headless")
 
             driver = webdriver.Chrome(chrome_options=chrome_options)
-            print("netloc: " + netloc)
+            
             url = "https://www.reclameaqui.com.br/busca/?q=" + netloc.strip()
-            print(url)
+            
             driver.get(url)
 
             html = driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
             soup = BeautifulSoup(html, 'html.parser')
+            
+            print("RECEBI DE VOLTA")
 
             # cards = soup.find_all(class_='card-list-search ng-scope slick-slide slick-current slick-active')
             # card_soup = BeautifulSoup(cards[0], 'html.parser')
@@ -62,6 +64,8 @@ class ReclameAqui(BaseIndicator):
 
             name = items[1].strip()
             rating = float(items[8].strip())
+            
+            print("VOU RETORNAR")
 
             # name = card_soup.find_all(class_='hidden-xs')[0].text.strip()
             # rating = float(card_soup.find_all(class_='score-search col-md-3 ng-binding ng-scope')[0].text.strip())

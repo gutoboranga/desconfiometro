@@ -11,7 +11,7 @@ import json
 
 class CNPJ(BaseIndicator):
     def __init__(self):
-        self.file = open("desconfiometro/indicators/data/cnpj/cnpj.txt", "r")
+        self.filename = "desconfiometro/indicators/data/cnpj/cnpj.txt"
 
     def get_name(self):
         return "CNPJ"
@@ -26,15 +26,17 @@ class CNPJ(BaseIndicator):
         return 10 if state == "Ativa" else 0
 
     def evaluate(self, parsed_url, registro_br):
-        reg_cnpj = registro_br["entities"][0]["publicIds"][0]["identifier"]
-        line = self.file.readline()
-        while line:
-            list = line.split(',')
-            cnpj = list[0].strip()
-            if cnpj == reg_cnpj:
-                name = list[1].strip()
-                state = list[2].strip()
-                r = Result(self.get_name(), self.get_description(), self.make_score(state), self.get_type())
-                r.data = (name, state)
-                return r
+        with open(self.filename, "r") as f:
+            reg_cnpj = registro_br["entities"][0]["publicIds"][0]["identifier"]
+            line = f.readline()
+            while line:
+                list = line.split(',')
+                cnpj = list[0].strip()
+                if cnpj == reg_cnpj:
+                    name = list[1].strip()
+                    state = list[2].strip()
+                    r = Result(self.get_name(), self.get_description(), self.make_score(state), self.get_type())
+                    r.data = (name, state)
+                    return r
+                line = f.readline()
 

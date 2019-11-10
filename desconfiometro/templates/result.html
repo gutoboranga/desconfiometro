@@ -17,7 +17,7 @@
                       <p class="card-subtitle">{{ result.data }}</p>
                   {% endif %}
                   
-                  {% if result.type == 'cnpj' and result.value != 0 %}
+                  {% if result.type == 'cnpj' %}
                       <br><br>
                       <p class="card-subtitle"><b>CPNJ encontrado:</b></p>
                       <p class="card-subtitle">{{ result.data[0] }}; <b>Status:</b> {{ result.data[1] }}</p>

@@ -27,8 +27,6 @@ class Redirects(BaseIndicator):
 
     def evaluate(self, parsed_url, registro_br):
         n = self.count_redirects(parsed_url)
-        print("NUMERO DE REDIRECTS: ")
-        print(n)
         return None if (n is None) else Result(self.get_name(), self.get_description(), self.make_score(n), self.get_type())
 
     def count_redirects(self, parsed_url):
