@@ -17,6 +17,8 @@ from desconfiometro.indicators.Votes import Votes
 from desconfiometro.indicators.data.NegativeVotesRepository import NegativeVotesRepository
 from desconfiometro.indicators.data.VotesRepository import VotesRepository
 
+from desconfiometro.indicators.CNPJ import CNPJ
+
 parsed = urlparse('https://www.submarinoviagens.com.br/index')
 print(parsed.netloc)
 
@@ -26,8 +28,8 @@ print(gl.get_name(), "Ok" if gl.evaluate(parsed) else "Not ok")
 # sc = ReclameAqui()
 # print(sc.get_name(), "Ok" if sc.evaluate(parsed) else "Not ok")
 
-ip = DNS()
-print(ip.get_name(), ip.evaluate(parsed).value)
+cnpj = CNPJ()
+print(cnpj.get_name(), cnpj.evaluate(parsed).value)
 
 v = Votes()
 print("votes: ", v.evaluate(parsed).value)

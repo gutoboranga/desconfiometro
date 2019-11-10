@@ -24,7 +24,8 @@ analyzer = Analyzer(weighted_indicators)
 @api_blueprint.route('/api', methods = ['GET'])
 @cross_origin()
 def get():
-    parsed_url = urlparse(request.args['url'])
+    url = request.args['url'] if 'http' in request.args['url'] else "https://" + request.args['url']
+    parsed_url = urlparse(url)
     
     analyzer.run(parsed_url)
     

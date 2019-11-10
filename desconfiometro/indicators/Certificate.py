@@ -26,15 +26,14 @@ class Certificate(BaseIndicator):
         return self.has_valid_certificate(parsed_url.netloc)
 
     def has_valid_certificate(self, netloc):
-        ok = False
-        
+        ok = None
+        print(netloc)
         try:
             requests.get('https://' + netloc, timeout = 3)
             ok = True
         except SSLError:
             ok = False
-        except:
-            ok = None
+
 
         return None if (ok == None) else Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
         
