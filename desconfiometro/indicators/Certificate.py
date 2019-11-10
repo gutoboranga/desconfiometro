@@ -19,6 +19,9 @@ class Certificate(BaseIndicator):
     def get_type(self):
         return "boolean"
 
+    def make_score(self, ok):
+        return 10 if ok else 0
+
     def evaluate(self, parsed_url):
         return self.has_valid_certificate(parsed_url.netloc)
 
@@ -26,11 +29,12 @@ class Certificate(BaseIndicator):
         ok = False
         
         try:
-            requests.get('https://' + netloc, timeout = 2)
+            requests.get('https://' + netloc, timeout = 3)
             ok = True
         except SSLError:
             ok = False
         except:
-            ok = False
+            ok = None
 
-        return Result(self.get_name(), self.get_description(), (1 if ok else 0), self.get_type())
+        return None if (ok == None) else Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
+        

@@ -17,9 +17,13 @@ class DNS(BaseIndicator):
 
     def get_type(self):
         return "boolean"
+        
+    def make_score(self, ok):
+        return 10 if ok else 0
 
     def evaluate(self, parsed_url):
-        return Result(self.get_name(), self.get_description(), not self.isIP(parsed_url.netloc), self.get_type())
+        ok = not self.isIP(parsed_url.netloc)
+        return Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
 
     def isIP(self, netloc):
         return True if re.match(self.ip_regex, netloc) else False

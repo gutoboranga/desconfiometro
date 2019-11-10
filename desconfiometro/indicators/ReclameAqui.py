@@ -22,11 +22,14 @@ class ReclameAqui(BaseIndicator):
 
     def get_type(self):
         return "numeric"
+        
+    def make_score(self, rating):
+        return rating
 
     def evaluate(self, parsed_url):
         print("WILL GET RATING")
         rating = self.get_rating(parsed_url.netloc)
-        return None if (rating == None) else Result(self.get_name(), self.get_description(), rating, self.get_type())
+        return None if (rating == None) else Result(self.get_name(), self.get_description(), self.make_score(rating), self.get_type())
 
     def get_rating(self, netloc):
         try:
