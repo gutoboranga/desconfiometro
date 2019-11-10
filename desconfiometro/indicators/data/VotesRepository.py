@@ -8,6 +8,6 @@ class VotesRepository:
         line = votes_file.readline()
         while (line):
             if line.split(',')[0].strip() == item:
-                return line.split(',')[1].strip()
+                return int(line.split(',')[1].strip())
             line = votes_file.readline()
         return 0
