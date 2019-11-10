@@ -1,3 +1,6 @@
+var hasLiked = false
+var likeValue = false
+
 function getData(event) {
     let site = document.getElementById('search').value
     
@@ -38,4 +41,23 @@ function startLoading() {
 function stopLoading() {
     let alpha = document.getElementById('alpha');
     alpha.parentNode.removeChild(alpha)
+}
+
+function like() {
+    setLike(true)
+}
+
+function dislike() {
+    setLike(false)
+}
+
+function setLike(b) {
+    hasLiked = true
+    likeValue = b
+    
+    let likeName = b ? "like-selected" : "like"
+    let dislikeName = b ? "dislike" : "dislike-selected"
+    
+    document.getElementById('like-img').src = "https://raw.githubusercontent.com/gutoboranga/public/master/" + likeName + ".png"
+    document.getElementById('dislike-img').src = "https://raw.githubusercontent.com/gutoboranga/public/master/" + dislikeName + ".png"
 }
