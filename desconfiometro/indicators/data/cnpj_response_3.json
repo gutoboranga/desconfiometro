@@ -1,0 +1,42 @@
+{
+  "ni": "46768703000165",
+  "data_abertura": "2007-03-14",
+  "nome_empresarial": "ABC COMPANHIA DIGITAL",
+  "nome_fantasia": "",
+  "cnae_principal": {
+    "codigo": "4789099",
+    "descricao": "Comércio varejista de outros produtos não especificados anteriormente"
+  },
+  "natureza_juridica": {
+    "codigo": "2046",
+    "descricao": "Sociedade Anônima Aberta"
+  },
+  "endereco": {
+    "logradouro": "R SACADURA CABRAL",
+    "numero": "102",
+    "complemento": "PARTE",
+    "cep": "20081902",
+    "bairro": "SAUDE",
+    "municipio": "RIO DE JANEIRO",
+    "uf": "RJ"
+  },
+  "situacao_especial": "",
+  "situacao_cadastral": {
+    "codigo": "3",
+    "data": "2007-03-14",
+    "motivo": ""
+  },
+  "orgao": "0718500",
+  "tipo_estabelecimento": "1",
+  "correio_eletronico": "CONTATO@ABCWEB.COM",
+  "capital_social": 445897042592,
+  "porte": "05",
+  "telefones": [
+    {
+      "ddd": "21",
+      "numero": "44434848"
+    }
+  ],
+  "nome_orgao": "RIO DE JANEIRO",
+  "ente_federativo": ""
+}
