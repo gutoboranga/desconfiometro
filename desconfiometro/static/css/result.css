@@ -29,10 +29,11 @@
     height: 100%;
 }
 
-.indicators-container {
+.board-container {
     background: rgba(0, 0, 0, 0.3);
     width: 80%;
     padding: 60px;
+    margin-bottom: 30px;
 }
 
 .card-subtitle {
@@ -83,6 +84,30 @@
     right: 30px;
 }
 
-#results_container {
-    margin-bottom: 30px;
+.like-dislike-container {
+    width: 100%;
+    background-color: green;
 }
+
+.like-dislike-btn {
+    height: 80px;
+    width: 80px;
+    background: #028ba3;
+    white-space: nowrap;
+    border-radius: .5px;
+    font-size: 20px;
+    color: #fff;
+    transition: all .2s ease-out, color .2s ease-out;
+    border: 0;
+    cursor: pointer;
+    margin: 24px 4em;
+}
+
+#like-btn {
+    
+}
+
+#like-btn {
+    
+}
+

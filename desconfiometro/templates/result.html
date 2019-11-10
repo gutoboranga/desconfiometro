@@ -5,7 +5,7 @@
         <div class="result-value-bar" style="background-color: {{ color }}; width: {{ score * 10 }}%;"></div>
     </div>
     
-    <div class="indicators-container">
+    <div class="board-container">
         {% for result in results %}
             <div class="card horizontal" style="background-color: #DDDDDD;">
                 <div class="card-content" style="margin-right: 80px;">
@@ -27,5 +27,14 @@
                 {% endif %}
             </div>
         {% endfor %}
+    </div>
+    
+    <div class="board-container" style="margin-top: 30px;">
+        <h3>Você já teve experiência com esta loja? Como foi?</h3>
+        <div class="like-dislike-container">
+            <button id="like-btn" class="like-dislike-btn" onclick="like()" type="button"></button>
+            <button id="close-image"><img src="http://thinkingstiff.com/images/matt.jpg"></button>
+            <button id="dislike-btn" class="like-dislike-btn" onclick="dislike()" type="button"></button>
+        </div>
     </div>
 </div>
