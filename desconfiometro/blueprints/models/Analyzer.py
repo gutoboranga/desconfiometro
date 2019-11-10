@@ -2,6 +2,7 @@ from desconfiometro.indicators.ReclameAqui import ReclameAqui
 from desconfiometro.indicators.Votes import Votes
 from desconfiometro.indicators.DNS import DNS
 from desconfiometro.blueprints.models.Result import Result
+from desconfiometro.indicators.utils import get_registro_br
 
 
 class Analyzer():
@@ -21,12 +22,14 @@ class Analyzer():
         newResults = []
         newScore = 0.0
         validWeightsSum = 0.0
+
+        registro_br = get_registro_br(url.netloc)
         
         for weighted_indicator in self.weighted_indicators:
             indicator = weighted_indicator[0]
             weight = weighted_indicator[1]
             
-            result = indicator.evaluate(url)
+            result = indicator.evaluate(url, registro_br)
             
             if result != None:
                 newScore += result.value * weight

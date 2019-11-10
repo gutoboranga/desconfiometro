@@ -22,7 +22,7 @@ class DNS(BaseIndicator):
     def make_score(self, ok):
         return 10 if ok else 0
 
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         ok = None
         if not self.isIP(parsed_url.netloc):
             reg = get_registro_br(parsed_url.netloc)

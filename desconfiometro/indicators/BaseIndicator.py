@@ -16,5 +16,5 @@ class BaseIndicator():
     def make_score(self):
         return -1
     
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         pass

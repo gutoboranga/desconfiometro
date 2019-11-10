@@ -20,7 +20,7 @@ class Votes(BaseIndicator):
     def get_type(self):
         return "tuple"
 
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         negative = self.negative_votes_repository.get_votes(parsed_url.netloc)
         positive = self.positive_votes_repository.get_votes(parsed_url.netloc)
         

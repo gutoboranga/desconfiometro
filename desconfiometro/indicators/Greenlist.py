@@ -18,7 +18,7 @@ class Greenlist(BaseIndicator):
     def make_score(self, ok):
         return 10 if ok else 0
 
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         return self.is_greenlisted(parsed_url.netloc)
 
     def is_greenlisted(self, item):

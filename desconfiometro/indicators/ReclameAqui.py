@@ -26,7 +26,7 @@ class ReclameAqui(BaseIndicator):
     def make_score(self, rating):
         return rating
 
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         print("WILL GET RATING")
         x = self.scrap(parsed_url.netloc)
 

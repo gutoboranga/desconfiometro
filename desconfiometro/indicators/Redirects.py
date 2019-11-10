@@ -25,7 +25,7 @@ class Redirects(BaseIndicator):
         if count > 3:
             return 0
 
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         n = self.count_redirects(parsed_url)
         print("NUMERO DE REDIRECTS: ")
         print(n)

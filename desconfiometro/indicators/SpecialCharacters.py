@@ -19,7 +19,7 @@ class SpecialCharacters(BaseIndicator):
     def make_score(self, ok):
         return 10 if ok else 0
 
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         ok = not self.contains_special_characters(parsed_url.netloc)
         return Result(self.get_name(), self.get_description(), self.make_score(ok), self.get_type())
 

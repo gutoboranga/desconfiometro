@@ -24,11 +24,11 @@ class CNPJ(BaseIndicator):
     def make_score(self, ok):
         return 10 if ok else 0
 
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         line = self.file.readline()
         while line:
 
             list = line.split(',')
             cnpj = list[0].strip()
 
-            
+

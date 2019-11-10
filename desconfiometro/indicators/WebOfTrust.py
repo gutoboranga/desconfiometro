@@ -10,7 +10,7 @@ class WebOfTrust(BaseIndicator):
     def get_name(self):
         return "Web of Trust"
 
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         return self.classify_url(parsed_url.netloc)
 
     def classify_url(self, item):

@@ -21,7 +21,7 @@ class Certificate(BaseIndicator):
     def make_score(self, ok):
         return 10 if ok else 0
 
-    def evaluate(self, parsed_url):
+    def evaluate(self, parsed_url, registro_br):
         return self.has_valid_certificate(parsed_url.netloc)
 
     def has_valid_certificate(self, netloc):
