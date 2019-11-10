@@ -21,14 +21,14 @@ from desconfiometro.indicators.data.VotesRepository import VotesRepository
 
 from desconfiometro.indicators.CNPJ import CNPJ
 
-parsed = urlparse('submarino.com.br')
+parsed = urlparse('htps://www.submarino.com.br')
 print(parsed.netloc)
 
 # sc = ReclameAqui()
 # print(sc.get_name(), "Ok" if sc.evaluate(parsed) else "Not ok")
 
 cnpj = CNPJ()
-cnpj.evaluate(parsed)
+print(cnpj.evaluate(parsed, get_registro_br(parsed.netloc)).data)
 
 # red = Redirects()
 # print("redirects: ", red.evaluate(parsed).value)

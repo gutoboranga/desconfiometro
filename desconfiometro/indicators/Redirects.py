@@ -12,7 +12,7 @@ class Redirects(BaseIndicator):
         return "Número de redirecionamentos"
 
     def get_description(self):
-        return "Um alto número de redirecionamentos pode indicar que página é fraudulentas"
+        return "Um alto número de redirecionamentos pode indicar que página é fraudulenta"
 
     def get_type(self):
         return "numeric"

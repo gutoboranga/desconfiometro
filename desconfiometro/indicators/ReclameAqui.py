@@ -45,7 +45,9 @@ class ReclameAqui(BaseIndicator):
             chrome_options.add_argument("--headless")
 
             driver = webdriver.Chrome(chrome_options=chrome_options)
-            url = "https://www.reclameaqui.com.br/busca/?q=" + netloc
+            print("netloc: " + netloc)
+            url = "https://www.reclameaqui.com.br/busca/?q=" + netloc.strip()
+            print(url)
             driver.get(url)
 
             html = driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")

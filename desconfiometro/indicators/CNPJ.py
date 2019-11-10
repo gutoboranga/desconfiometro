@@ -6,11 +6,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
 import re
+import json
 
 
 class CNPJ(BaseIndicator):
     def __init__(self):
-        self.file = open("cnpj.txt", "r")
+        self.file = open("desconfiometro/indicators/data/cnpj/cnpj.txt", "r")
 
     def get_name(self):
         return "CNPJ"
@@ -21,14 +22,19 @@ class CNPJ(BaseIndicator):
     def get_type(self):
         return "boolean"
 
-    def make_score(self, ok):
-        return 10 if ok else 0
+    def make_score(self, state):
+        return 10 if state == "Ativa" else 0
 
     def evaluate(self, parsed_url, registro_br):
+        reg_cnpj = registro_br["entities"][0]["publicIds"][0]["identifier"]
         line = self.file.readline()
         while line:
-
             list = line.split(',')
             cnpj = list[0].strip()
-
+            if cnpj == reg_cnpj:
+                name = list[1].strip()
+                state = list[2].strip()
+                r = Result(self.get_name(), self.get_description(), self.make_score(state), self.get_type())
+                r.data = (name, state)
+                return r
 
