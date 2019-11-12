@@ -35,6 +35,3 @@ Nossa equipe é formada por:
 - [Augusto Boranga](http://github.com/gutoboranga)
 - [Christian Schmitz](http://github.com/christians342)
 - [Lúcio Franco](http://github.com/lucio-lpf)
-
-
-Projeto desenvolvido no Hackfest RS 2019. A ideia é fornecer uma maneira simples para o consumidor verificar a segurança de um site em de compras.
